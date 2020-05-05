@@ -8,19 +8,27 @@ Author:
 GitHub:
 	https://github.com/CharlesPikachu
 更新日期:
-	2019-12-17
+	2020-05-05
 '''
 import SeleniumLogin
 from setuptools import setup, find_packages
 
 
+'''readme'''
+with open('README.md', 'r', encoding='utf-8') as f:
+	long_description = f.read()
+
+
+'''setup'''
 setup(
 	name='SeleniumLogin',
 	version=SeleniumLogin.__version__,
 	description='Login some website using selenium.',
+	long_description=long_description,
+	long_description_content_type='text/markdown',
 	classifiers=[
 			'License :: OSI Approved :: MIT License',
-			'Programming Language :: Python',
+			'Programming Language :: Python :: 3',
 			'Intended Audience :: Developers',
 			'Operating System :: OS Independent'],
 	author='Charles',
