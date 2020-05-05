@@ -8,19 +8,20 @@ Author:
 GitHub:
 	https://github.com/CharlesPikachu
 更新日期:
-	2019-12-17
+	2020-05-05
 '''
 from .platforms import *
 
 
 '''模拟登录'''
 class Login():
-	def __init__(self, is_headless, **kwargs):
+	def __init__(self, is_headless=True, **kwargs):
 		self.info = 'Login some website using selenium.'
 		self.init_args = {'is_headless': is_headless}
-	'''淘宝'''
-	def taobao(self, username, password, chromedriverpath=None):
-		return taobao.Taobao(**self.init_args).login(username, password, chromedriverpath)
-	'''Info'''
+		self.__initializeAll()
+	'''初始化所有平台'''
+	def __initializeAll(self):
+		self.taobao = taobao(**self.init_args).login
+	'''repr'''
 	def __repr__(self):
 		return self.info

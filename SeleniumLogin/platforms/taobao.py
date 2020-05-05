@@ -18,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 '''淘宝网模拟登录'''
-class Taobao():
+class taobao():
 	def __init__(self, is_headless=True, **kwargs):
 		self.login_url = 'https://login.taobao.com/member/login.jhtml'
 		self.chrome_options = webdriver.ChromeOptions()
@@ -40,12 +40,13 @@ class Taobao():
 		browser.find_element_by_xpath('//*[@id="TPL_password_1"]').send_keys(password)
 		browser.implicitly_wait(30)
 		browser.find_element_by_xpath('//*[@id="UA_InputId"]').click()
-		username_get = visit_wait.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.site-nav-bd > ul.site-nav-bd-l > li#J_SiteNavLogin > div.site-nav-menu-hd > div.site-nav-user > a.site-nav-login-info-nick ')))
-		print('[INFO]: Login successfully, your username is <%s>...' % username_get)
-		return username_get, browser
+		nickname = visit_wait.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.site-nav-bd > ul.site-nav-bd-l > li#J_SiteNavLogin > div.site-nav-menu-hd > div.site-nav-user > a.site-nav-login-info-nick ')))
+		print('[INFO]: Account -> %s, login successfully...' % username)
+		infos_return = {'username': username, 'nickname': nickname}
+		return infos_return, browser
 
 
 '''测试'''
 if __name__ == '__main__':
 	init_args = {'is_headless': False}
-	username, browser = Taobao(**init_args).login(username='', password='', chromedriverpath='')
+	username, browser = taobao(**init_args).login(username='', password='', chromedriverpath='')
