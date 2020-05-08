@@ -8,12 +8,12 @@ You can star this repository to keep track of the project if it's helpful for yo
 preparing
 
 # Support List
-|  Websites        | Core Codes                                   |  in Chinese    |
-|  :----:          | :----:                                       |  :----:        |
-|  taobao          | [click](./SeleniumLogin/platforms/taobao.py) |  淘宝          |
+|  Websites        | Core Codes                                      |  in Chinese    |
+|  :----:          | :----:                                          |  :----:        |
+|  Bilibili        | [click](./SeleniumLogin/core/bilibili.py)       |  B站           |
 
 # Install
-#### Pip install(preparing)
+#### Pip install
 ```
 run "pip install SeleniumLogin"
 ```
@@ -36,10 +36,10 @@ http://npm.taobao.org/mirrors/chromedriver/
 ```
 from SeleniumLogin import login
 lg = login.Login()
-username, browser = lg.taobao(username=xxx, password=xxx, chromedriverpath=xxx)
+username, browser = lg.bilibili(username=xxx, password=xxx, chromedriverpath=xxx)
 ```
 
 # More
 #### WeChat Official Accounts
 *Charles_pikachu*  
-![img](./pictures/pikachu.jpg)
+![img](pikachu.jpg)

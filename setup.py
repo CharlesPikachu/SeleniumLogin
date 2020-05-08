@@ -36,7 +36,7 @@ setup(
 	author_email='charlesjzc@qq.com',
 	license='MIT',
 	include_package_data=True,
-	install_requires=['selenium'],
+	install_requires=['selenium >= 3.141.0', 'pillow >= 6.0.0', 'numpy >= 1.16.2'],
 	zip_safe=True,
 	packages=find_packages()
 )
