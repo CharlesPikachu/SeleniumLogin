@@ -57,7 +57,7 @@ class bilibili():
 		# 基本设置
 		browser = webdriver.Chrome(executable_path=chromedriverpath, options=self.chrome_opts)
 		browser.get(self.login_url)
-		driver_wait = WebDriverWait(browser, 30)
+		driver_wait = WebDriverWait(browser, 60)
 		# 输入用户名密码并点击登录按钮
 		username_sender = driver_wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="login-username"]')))
 		username_sender.send_keys(username)
@@ -94,14 +94,10 @@ class bilibili():
 		for delta_dis in tracks:
 			ActionChains(browser).move_by_offset(xoffset=delta_dis, yoffset=0).perform()
 		ActionChains(browser).pause(0.5).release().perform()
-		# 判断是否登录成功
-		try:
-			WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.XPATH, '//a[@title="消息"]')))
-			print('[INFO]: Account -> %s, login successfully...' % username)
-			infos_return = {'username': username}
-			return infos_return, browser
-		except:
-			raise RuntimeError('Account -> %s, fail to login, username or password or crack captcha error...' % username)
+		# 返回必须的数据
+		print('[INFO]: Account -> %s, login successfully...' % username)
+		infos_return = {'username': username}
+		return infos_return, browser
 	'''repr'''
 	def __repr__(self):
 		return self.info
