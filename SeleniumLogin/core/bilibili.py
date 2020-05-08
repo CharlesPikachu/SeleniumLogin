@@ -90,7 +90,7 @@ class bilibili():
 		# 将滑块移动到缺口位置
 		slider = driver_wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[6]/div/div[1]/div[2]/div[2]')))
 		ActionChains(browser).click_and_hold(on_element=slider).perform()
-		tracks = TrackGenerator.getTracksByExpfunc(round(distance * 0.95))
+		tracks = TrackGenerator.getTracksByExpfunc(distance * 0.93)
 		for delta_dis in tracks:
 			ActionChains(browser).move_by_offset(xoffset=delta_dis, yoffset=0).perform()
 		ActionChains(browser).pause(0.5).release().perform()

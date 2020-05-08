@@ -35,11 +35,12 @@ class TrackGenerator():
 		tracks[-1] -= (offset - distance)
 		return tracks
 	@staticmethod
-	def getTracksByExpfunc(distance):
+	def getTracksByExpfunc(distance, delay=5):
 		tracks = []
 		offset = 0
-		for i in np.arange(0.2, 12, 0.2):
-			delta_dis = round((1 - pow(2, -10 * i / 12)) * distance) - offset
+		for i in np.arange(0.1, delay, 0.1):
+			delta_dis = round((1 - pow(2, -10 * i / delay)) * distance) - offset
 			tracks.append(delta_dis)
 			offset += delta_dis
+		tracks[-1] += (distance - offset)
 		return tracks
