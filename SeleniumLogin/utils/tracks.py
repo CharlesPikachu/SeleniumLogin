@@ -10,6 +10,7 @@ GitHub:
 更新日期:
 	2020-05-08
 '''
+import random
 import numpy as np
 
 
@@ -21,12 +22,12 @@ class TrackGenerator():
 	def getTracksByAcceleration(distance):
 		tracks = []
 		offset = 0
-		turning_point = distance * 0.8
-		delta_t = 0.2
+		turning_point = distance * 0.75
+		delta_t = random.choice([0.2, 0.3])
 		v_start = 0
 		while offset < distance:
-			if offset < turning_point: a = 2
-			else: a = -3
+			if offset < turning_point: a = random.randrange(10, 20)
+			else: a = random.randrange(5, 10)
 			v_end = v_start + a * delta_t
 			delta_dis = v_start * delta_t + 0.5 * a * delta_t * delta_t
 			offset += round(delta_dis)
