@@ -11,6 +11,7 @@ preparing
 |  Websites        | Core Codes                                      |  in Chinese    |
 |  :----:          | :----:                                          |  :----:        |
 |  Bilibili        | [click](./SeleniumLogin/core/bilibili.py)       |  B站           |
+|  Taobao          | [click](./SeleniumLogin/core/taobao.py)         |  淘宝          |
 
 # Install
 #### Pip install
@@ -37,6 +38,7 @@ http://npm.taobao.org/mirrors/chromedriver/
 from SeleniumLogin import login
 lg = login.Login()
 username, browser = lg.bilibili(username=xxx, password=xxx, chromedriverpath=xxx)
+username, browser = lg.taobao(username=xxx, password=xxx, chromedriverpath=xxx)
 ```
 
 # More
