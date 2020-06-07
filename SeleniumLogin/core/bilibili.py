@@ -94,7 +94,7 @@ class bilibili():
 		for delta_dis in tracks:
 			ActionChains(browser).move_by_offset(xoffset=delta_dis, yoffset=0).perform()
 		ActionChains(browser).pause(0.5).release().perform()
-		# 返回必须的数据
+		# 返回必要的数据
 		print('[INFO]: Account -> %s, login successfully...' % username)
 		infos_return = {'username': username}
 		return infos_return, browser

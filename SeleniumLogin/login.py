@@ -8,7 +8,7 @@ Author:
 GitHub:
 	https://github.com/CharlesPikachu
 更新日期:
-	2020-05-05
+	2020-06-07
 '''
 from .core import *
 
@@ -21,7 +21,9 @@ class Login():
 		self.__initializeAll()
 	'''初始化所有平台'''
 	def __initializeAll(self):
-		self.bilibili = bilibili(**self.init_args).login
+		for key, value in {'taobao': taobao(**self.init_args).login, 
+						   'bilibili': bilibili(**self.init_args).login}.items():
+			setattr(self, key, value)
 	'''repr'''
 	def __repr__(self):
 		return self.info
